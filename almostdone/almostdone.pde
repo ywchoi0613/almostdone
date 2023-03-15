@@ -30,7 +30,7 @@ void draw() {
       }
         else if (count>=400 && count<800) {  //2라운드: 쿠마몬 2개 + 심슨 2개
         fill(0);
-        choi(mouseX,500);  // suh
+        choi(mouseX,500);
         b[0] += v[0];
         b[1] += v[1];
         b[2] += v[2];
