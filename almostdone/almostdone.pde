@@ -43,7 +43,7 @@ void draw() {
         }
           else if (count>=800 && count<1200) {  //3라운드: 쿠마몬2개 + 심슨 2개 + 호빵맨 2개
           fill(0);
-          choi(mouseX,500);  // suh
+          choi(mouseX,500);
           b[0] += v[0];
           b[1] += v[1];
           b[2] += v[2];
