@@ -120,7 +120,7 @@ void collide() {
       file2 = new SoundFile(this,"gameover.wav");
       file2.play();
     }
-    //d=5일 때, 720
+    //d=5일 때, 730
   }
 }
 void collide2() {
@@ -138,6 +138,6 @@ void collide2() {
       file2 = new SoundFile(this,"gameover.wav");
       file2.play();
       }
-    //d=5일 때, 720
+    //d=5일 때, 730
     }
   }
