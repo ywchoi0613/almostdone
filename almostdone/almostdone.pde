@@ -1,4 +1,8 @@
 float [] a, b, v;
+import processing.sound.*;
+SoundFile file;
+SoundFile file2;
+SoundFile file3;
 void setup() {
   size(1000, 800);
   a = new float[6];  //캐릭터들의 x좌표
@@ -15,6 +19,8 @@ void setup() {
   for ( int i=0; i<6; i++) {
     if(i%2==0) v[i] = 1;  //i가 짝수일 때 v=1
     else v[i] = 2;  //i가 홀수일 때 v=2
+  file = new SoundFile(this,"background5min.mp3");
+  file.play();
   }
 }
 int count = 0;  //시간이 지날수록 count가 커짐->타이머 역할
@@ -101,24 +107,36 @@ void draw() {
 }
 void collide() {
   for (int i=0; i<6; i++) {
-    if (sqrt((mouseX-a[i])*(mouseX-a[i]))<=300 && b[i] > float(620)) v[i] = -v[i];  //바의 x,y좌표와 캐릭터 x,y좌표 조건에 따라 튕기도록 설정
-    else if (sqrt((mouseX-a[i])*(mouseX-a[i]))>300 && b[i] > float(720)){  //바와 캐릭터가 만나지 않을 경우
+    if (sqrt((mouseX-a[i])*(mouseX-a[i]))<=300 && b[i] > float(620)) {
+      v[i] = -v[i];  //바의 x,y좌표와 캐릭터 x,y좌표 조건에 따라 튕기도록 설정
+      file3 = new SoundFile(this,"bounce.wav");
+      file3.play();
+    }
+    else if (sqrt((mouseX-a[i])*(mouseX-a[i]))>300 && b[i] > float(730)){  //바와 캐릭터가 만나지 않을 경우
       fill(0,200,200);
       textSize(90);
       text("Result: "+int(count)+"points",40,100);  //최종 점수 표시
       stop();  //게임 오버
+      file2 = new SoundFile(this,"gameover.wav");
+      file2.play();
     }
     //d=5일 때, 720
   }
 }
 void collide2() {
   for (int i=0; i<6; i++) {
-    if (sqrt((mouseX-a[i])*(mouseX-a[i]))<=150 && b[i] > float(620)) v[i] = -v[i];  //바의 x,y좌표와 캐릭터 x,y좌표 조건에 따라 튕기도록 설정
-    else if (sqrt((mouseX-a[i])*(mouseX-a[i]))>150 && b[i] > float(720)){  //바와 캐릭터가 만나지 않을 경우
+    if (sqrt((mouseX-a[i])*(mouseX-a[i]))<=150 && b[i] > float(620)) {
+      v[i] = -v[i];  //바의 x,y좌표와 캐릭터 x,y좌표 조건에 따라 튕기도록 설정
+      file3 = new SoundFile(this,"bounce.wav");
+      file3.play();
+    }
+    else if (sqrt((mouseX-a[i])*(mouseX-a[i]))>150 && b[i] > float(730)){  //바와 캐릭터가 만나지 않을 경우
       fill(0,200,200);
       textSize(90);
       text("Result: "+int(count)+"points",40,100);  //최종 점수 표시
       stop();  //게임 오버
+      file2 = new SoundFile(this,"gameover.wav");
+      file2.play();
       }
     //d=5일 때, 720
     }
